@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+   <link href="https://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.css" rel="stylesheet">
+   <style type="text/css">
+        .list-group-item{
+            -webkit-transition: all .25s ;
+               -moz-transition: all .25s ;
+                -ms-transition: all .25s ;
+                 -o-transition: all .25s ;
+                    transition: all .25s ;
+        }
+       .list-group-item:hover{
+            background:#CCC;
+       }
+       .list-group-item.current{
+            background:#CCC;
+       }
+   </style>
+</head>
+<body id="wrap">
+ <div class="form-group" style="width:640px;margin: 20px auto;overflow: hidden;" id="app">
+
+    <input type="text" class="form-control pull-left" id="exampleInputEmail1" placeholder="制服诱惑" style="width:65%" v-model.trim="shownum1>shownum2?input2:input1"  @keyup.stop="jianpan($event)" @keyup.enter.stop="huiche()">
+    <!-- v-model.trim过滤首位空格 -->
+    <!-- <span>{{input1}}</span> -->
+    <button type="button" class="btn btn-success pull-left" @click.stop="search()">百度一下</button>
+    <div v-show="show1" style="width:65%">
+       <ul class="list-group" style="margin-top: 35px;">
+          <li class="list-group-item" v-for="(item,index) in arrayData" :class="{current:index==showflag}">
+            <a @click.stop="tiao(item)">{{item}}</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+<script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript">
+    window.onload=(()=>{
+        var vm=new Vue({
+        el:"#app",
+        data(){
+            return {
+                input1:"",
+                input2:"触发了",
+                show1:false,
+                arrayData:[],
+                isflag:false,
+                showflag:-1,
+                shownum1:1,
+                shownum2:2
+            }
+        },
+        methods:{
+            tiao(index){
+               window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+index+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+            },
+            huiche(){
+                 if(this.shownum1>this.shownum2){
+                      window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+this.input2+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+                  }else{
+                    window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+this.input1+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+                  }
+
+            },
+            overallsituation(){
+                alert(1);
+            },
+            jianpan(event){
+                if(event.keyCode==38){
+                    console.log("你按了上");
+                    this.shownum2=1;
+                    this.shownum1=2;
+                    this.showflag--;
+                    this.isflag=true;
+                    if(this.showflag<0){
+                        this.showflag=0;
+                    }
+                    console.log(this.showflag);
+                    console.log(this.$refs.profile);
+                    this.input2=this.arrayData[this.showflag];
+                }else if(event.keyCode==40){
+                    console.log("你按了下");
+                       this.shownum2=1;
+                    this.shownum1=2;
+                    this.showflag++;
+                    if(this.showflag>(this.arrayData.length-1)){
+                        this.showflag=this.arrayData.length-1;
+                    }
+                    this.isflag=true;
+                    console.log(this.showflag);
+                    this.input2=this.arrayData[this.showflag];
+                }
+            },
+            search(){
+                if(this.shownum1>this.shownum2){
+                      window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+this.input2+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+                  }else{
+                    window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+this.input1+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+                  }
+            },
+            enter1(){
+                alert("你按了回车");
+            }
+            //hover起来太惨了,还是注释吧
+            // xuanfu(data1){
+            //     this.input1=data1;
+            //     console.log(data1);
+            // }
+        },
+        watch:{
+            input1(){
+                this.show1=true;
+                var that=this;
+                if(this.input1==""){
+                    this.show1=false;
+                }
+                $.ajax({
+                    type:"get",
+                    url:"https://gsp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=callback&wd="+this.input1+"&sc=hao123&_=1506355261424",
+                    dataType:"jsonp", //返回格式
+                      jsonp: "cd",
+                     jsonpCallback:"callback",
+                    success: function (data) {
+                        console.log(this);
+                        // Vue.set(this.arrayData,data.s);
+                        that.arrayData=data.s;  // Object {q: "18", p: false, s: Array[10]}
+                        console.log(that.arrayData);
+                    },
+                    error: function () {
+
+                    }
+                });
+            }
+        }
+
+     });
+    document.getElementById("wrap").addEventListener("click",()=>{
+            vm.show1=false;
+    },false)
+    })
+
+</script>
+</body>
+</html>
