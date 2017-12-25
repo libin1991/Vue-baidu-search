@@ -117,6 +117,8 @@
                 if(this.input1==""){
                     this.show1=false;
                 }
+                //实际项目请 install jsonp
+                //此处暂用jq的ajax请求
                 $.ajax({
                     type:"get",
                     url:"https://gsp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=callback&wd="+this.input1+"&sc=hao123&_=1506355261424",
