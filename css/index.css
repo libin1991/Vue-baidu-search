@@ -1,0 +1,13 @@
+ .list-group-item{
+            -webkit-transition: all .25s ;
+               -moz-transition: all .25s ;
+                -ms-transition: all .25s ;
+                 -o-transition: all .25s ;
+                    transition: all .25s ;
+        }
+       .list-group-item:hover{
+            background:#CCC;
+       }
+       .list-group-item.current{
+            background:#CCC;
+       }
