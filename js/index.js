@@ -15,13 +15,13 @@
         },
         methods:{
             tiao(index){
-               window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+index+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+               window.location.href="https://www.baidu.com/s?ie=utf-8&wd="+index;
             },
             EnTer(){
                  if(this.shownum1>this.shownum2){
-                      window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+this.input2+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+                      window.location.href="https://www.baidu.com/s?ie=utf-8&wd="+this.input2;
                   }else{
-                    window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+this.input1+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+                    window.location.href="https://www.baidu.com/s?ie=utf-8&f=8&wd="+this.input1;
                   }
 
             },
@@ -29,8 +29,8 @@
                 alert(1);
             },
             keyboard(event){
+                /* 判断键盘 */
                 if(event.keyCode==38){
-                    console.log("你按了上");
                     this.shownum2=1;
                     this.shownum1=2;
                     this.showflag--;
@@ -38,11 +38,8 @@
                     if(this.showflag<0){
                         this.showflag=0;
                     }
-                    console.log(this.showflag);
-                    console.log(this.$refs.profile);
                     this.input2=this.arrayData[this.showflag];
                 }else if(event.keyCode==40){
-                    console.log("你按了下");
                        this.shownum2=1;
                     this.shownum1=2;
                     this.showflag++;
@@ -50,15 +47,14 @@
                         this.showflag=this.arrayData.length-1;
                     }
                     this.isflag=true;
-                    console.log(this.showflag);
                     this.input2=this.arrayData[this.showflag];
                 }
             },
             search(){
                 if(this.shownum1>this.shownum2){
-                      window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+this.input2+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+                      window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&wd="+this.input2;
                   }else{
-                    window.location.href="https://www.baidu.com/s?ie=utf-8&mod=1&isbd=1&isid=8daa1a28000991b7&ie=utf-8&f=8&rsv_bp=1&srcqid=1504447036875632655&tn=12092018_17_hao_pg&wd="+this.input1+"&oq=1010%25E5%2585%25BC%25E8%2581%258C%25E7%25BD%2591&rsv_pq=8daa1a28000991b7&rsv_t=63cethNIR70qxJst2qzNYK7LsMA7CTrrnndSl2wAfqo5aTfOxQ3lF3BSiTgTh9BhPyvDE%2FeJ8ege&rqlang=cn&rsv_enter=0&rsv_sug3=9&rsv_sug1=9&rsv_sug7=100&inputT=1985&rsv_sug4=2622&bs=1010%E5%85%BC%E8%81%8C%E7%BD%91&rsv_sid=undefined&_ss=1&clist=a85f00247e82a0bd&hsug=&f4s=1&csor=2&_cr1=35922";
+                    window.location.href="https://www.baidu.com/s?ie=utf-8&wd="+this.input1;
                   }
             },
             enter1(){
@@ -73,9 +69,8 @@
                 if(this.input1==""){
                     this.show1=false;
                 }
-                //实际项目请 install jsonp
-                //此处暂用jq的ajax请求
-               httpJsonp("get","https://gsp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=callback&wd="+this.input1+"&sc=hao123&_=1506355261424",that)
+                /* 此处跨域请求百度接口 ajax+jsonp */
+               httpJsonp("get","https://gsp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=callback&wd="+this.input1,that)
             }
         }
 

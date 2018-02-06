@@ -1,12 +1,12 @@
-欢迎一起探讨技术哦，赏个Star吧ლ(°◕‵ƹ′◕ლ)ლ(°◕‵ƹ′◕ლ)
+# 用vuejs仿百度一下（随性写）
+# 涉及到跨域请求，暂时用jquery封装的jsonp请求接口。
+# 具体demo截图
+	![](./jdfw.gif "百度一下")
+
+## 技术栈
+
+ - vue2.0（核心框架）
+ - jsonp （接轨百度jsonp接口）
 
 
-
-
-
-##跨域问题
-
-跨域可以使用谷歌的插件解决:
-参考https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
-或者谷歌开启允许跨域,
-参考 http://camnpr.com/archives/chrome-args-disable-web-security.html
+# 跨域可以使用谷歌的插件解决: 参考https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
