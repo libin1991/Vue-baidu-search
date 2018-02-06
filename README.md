@@ -9,4 +9,5 @@
  - jsonp （接轨百度jsonp接口）
 
 
-# 跨域可以使用谷歌的插件解决: 参考https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
+# 跨域可以使用谷歌的插件解决: 
+ - https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
